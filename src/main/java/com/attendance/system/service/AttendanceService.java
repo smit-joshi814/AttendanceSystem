@@ -92,7 +92,7 @@ public class AttendanceService {
 			Mapping mapping = mappingService.getMapping(mid).getBody();
 			Student student = studentService.getStudent(sid).getBody();
 			System.err.println("filling Attendance");
-			if (sessionService.isSessionAvailable(mapping.getCourse().getCourseId().toString(),
+			if (mapping !=null && student !=null && sessionService.isSessionAvailable(mapping.getCourse().getCourseId().toString(),
 					mapping.getSubject().getSubjectId().toString(), mapping.getSemester().getSemesterId().toString(),
 					student.getStudentDivision(), mapping.getFaculty().getFacultyId().toString())) {
 				System.err.println("session is active");
